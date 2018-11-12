@@ -4,8 +4,6 @@ import {
   COUNTER_ACTION_FINISHED,
   COUNTER_ACTION_STARTED
 } from "./TestContants";
-import { promises } from "fs";
-import { resolve } from "url";
 
 export const incrementCounter = () => {
   return {
