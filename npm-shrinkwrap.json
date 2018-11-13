@@ -10406,6 +10406,15 @@
       "integrity": "sha512-QQ9BRy77oURHMdGys9rfQcCQDzXZ1T4oW+eUyE5Cg7DNVau69HJzc4YNDMOmpi0Dzpi1zOQgQ2rUpgJta4Lfqg==",
       "dev": true
     },
+    "redux-firestore": {
+      "version": "0.5.8",
+      "resolved": "https://registry.npmjs.org/redux-firestore/-/redux-firestore-0.5.8.tgz",
+      "integrity": "sha512-qEnTKO67FORnEFOJJ3F4spUgQJTJpem1XPR/9+UcEkdKtHb3lvX+MrEmgppOkGNiu9pff3miHhaPbjMcppzcgw==",
+      "requires": {
+        "lodash": "^4.17.10",
+        "prop-types": "^15.6.1"
+      }
+    },
     "redux-form": {
       "version": "7.4.2",
       "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-7.4.2.tgz",

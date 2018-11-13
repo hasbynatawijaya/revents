@@ -1,13 +1,14 @@
 import React, { Component } from "react"; //type rcc the press tab shortcut
 import { Grid } from "semantic-ui-react";
+import { firestoreConnect } from "react-redux-firebase";
 import EventList from "../EventList/EventList";
-import EventActivity from '../EventActivity/EventActivity'
+import EventActivity from "../EventActivity/EventActivity";
 import { connect } from "react-redux";
 import { deleteEvent } from "../eventActions";
-import LoadingComponent from '../../../../app/layout/LoadingComponent'
+import LoadingComponent from "../../../../app/layout/LoadingComponent";
 
 const mapState = state => ({
-  events: state.events,
+  events: state.firestore.ordered.events,
   loading: state.async.loading
 });
 
@@ -22,14 +23,14 @@ class EventDashboard extends Component {
 
   render() {
     const { events, loading } = this.props;
-    if(loading) return <LoadingComponent inverted={true}/>
+    if (loading) return <LoadingComponent inverted={true} />;
     return (
       <Grid>
         <Grid.Column width={10}>
           <EventList deleteEvents={this.handleDeleteEvent} events={events} />
         </Grid.Column>
         <Grid.Column width={6}>
-          <EventActivity/>
+          <EventActivity />
         </Grid.Column>
       </Grid>
     );
@@ -39,4 +40,4 @@ class EventDashboard extends Component {
 export default connect(
   mapState,
   actions
-)(EventDashboard);
+)(firestoreConnect([{ collection: "events" }])(EventDashboard));
