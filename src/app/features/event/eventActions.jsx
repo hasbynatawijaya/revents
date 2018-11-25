@@ -6,13 +6,11 @@ import {
   FETCH_EVENTS
 } from "./eventConstants";
 
-import {
-  asyncActionStart,
-  asyncActionFinish,
-  asyncActionError
-} from "../async/asyncActions";
-
-import { fetchSampleData } from "../../../app/data/mockApi";
+// import {
+//   asyncActionStart,
+//   asyncActionFinish,
+//   asyncActionError
+// } from "../async/asyncActions";
 
 export const fetchEvents = events => {
   return {
@@ -30,7 +28,7 @@ export const createEvent = event => {
           event
         }
       });
-      toastr.success("Success", "Message has been created");
+      toastr.success("Success", "Event has been created");
     } catch (error) {
       toastr.error("Oops", "Something went wrong :(");
     }
@@ -62,17 +60,17 @@ export const deleteEvent = eventId => {
   };
 };
 
-export const loadEvents = () => {
-  return async dispatch => {
-    try {
-      dispatch(asyncActionStart());
-      let events = await fetchSampleData();
-      dispatch(fetchEvents(events));
-      dispatch(asyncActionFinish());
-    } catch (error) {
-      console.log(error);
+// export const loadEvents = () => {
+//   return async dispatch => {
+//     try {
+//       dispatch(asyncActionStart());
+//       let events = await fetchSampleData();
+//       dispatch(fetchEvents(events));
+//       dispatch(asyncActionFinish());
+//     } catch (error) {
+//       console.log(error);
 
-      dispatch(asyncActionError());
-    }
-  };
-};
+//       dispatch(asyncActionError());
+//     }
+//   };
+// };
